@@ -1,0 +1,3 @@
+export const CREATE_DETAIL = "CREATE_DETAIL";
+export const UPDATE_DETAIL = "UPDATE_DETAIL";
+export const DELETE_DETAIL = "DELETE_DETAIL";

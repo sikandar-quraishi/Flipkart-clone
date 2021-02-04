@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://Sikandar:Abcd123@flipkartclone.gjwr7.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
+}

@@ -1,0 +1,355 @@
+nav {
+    display: flex;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    /* direction: row; */
+    align-items: center;
+    height: 56px;
+    background-color: #2874f0;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand__logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.plus {
+    color: #ffe500;
+    font-weight: 500;
+    margin-right: 2px;
+    text-decoration: none;
+}
+
+/*  Start Search Bar */
+
+.search__bar {
+    display: flex;
+    flex: 0.6 1;
+    align-items: center;
+    margin: 0 2em 0 1em;
+}
+
+input {
+    padding: 0 16px;
+    border-radius: 2px 0 0 2px;
+    border: 0;
+    outline: 0 none;
+    font-size: 14px;
+    height: 36px;
+    width: 100%;
+}
+
+.search__icon_button {
+    height: 36px;
+    border: none;
+    padding: 0 12px 0 8px;
+    background-color: #fff;
+    margin-left: -1px;
+    border-radius: 0 2px 2px 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.search__icon {
+    background-color: #fff;
+    color: #2874f0;
+    margin-left: -1px;
+}
+
+/*  End Search Bar */
+
+
+/* Start Sign Dropdwon */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.signIn__button__dropbtn {
+    color: #2874f0;
+    font-weight: 500;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 32px;
+    padding: 5px 40px;
+    border: 1px solid #dbdbdb;
+    font-family: Roboto, Arial, sans-serif;
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    outline: none;
+}
+
+
+
+.dropdown-content:before {
+    position: absolute;
+    top: -11px;
+    right: 105px;
+    display: inline-block;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid #fff;
+}
+
+/* .dropdown-content:after {
+    position: absolute;
+    top: -6px;
+    right: 15px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid green;
+    border-left: 6px solid transparent;
+    content: '';
+ } */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    margin-top: 12px;
+    border-radius: 2px;
+    right: -55px;
+}
+
+.dropdown-content a {
+    color: #212121;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid gainsboro;
+}
+
+/* a:first-child{
+height: 30px;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+} */
+.newcustomer__signup {
+    height: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown__list__icons {
+    font-size: 14px;
+    color: #2874f0;
+    /* margin: 0 6px; */
+    margin: 0 14px 0 4px;
+}
+
+
+
+
+
+/* Right dropdown buttons */
+
+.right__items {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+    align-items: center;
+    width: 22em;
+}
+
+/*Start More DropDown */
+
+.more__dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown__more__link {
+    color: #fff;
+    align-items: center;
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.dropdown__more__link::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f107";
+    float: right;
+    color: #fff;
+    margin-left: 5px;
+    /* padding-right: 30px; */
+
+    /* transition: transform .3s; */
+}
+
+.dropdown__more__link:hover::before {
+    color: #fff;
+
+    content: "\f106";
+    /* transform: rotate(180deg); */
+}
+
+.more__dropdown__content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 240px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+    margin-top: 18px;
+    border-radius: 2px;
+    right: -82px;
+}
+
+.more__dropdown__content:before {
+    position: absolute;
+    top: -11px;
+    right: 105px;
+    display: inline-block;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 11px solid #fff;
+}
+
+
+.more__dropdown__content a {
+    color: #212121;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid gainsboro;
+}
+
+.more__dropdown__content a:hover {
+    background-color: #ddd;
+}
+
+.more__dropdown:hover .more__dropdown__content {
+    display: block;
+}
+
+/*End More DropDown */
+
+/* Start Cart button */
+
+.dropdown__cart {
+    align-items: center;
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: 0.1px;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    font-style: normal;
+}
+
+/* End Cart button */
+
+
+
+@media only screen and (max-width: 600px) {
+
+    /* .search__bar {
+        margin: 0 1em;
+    } */
+    .right__items {
+        width: 15em;
+    }
+
+    /* input{
+        height:  30px;
+    }
+    .search__icon_button{
+        height:  30px;
+
+    }
+    .dropbtn {
+        padding: 3px 30px;
+        height: 27px;
+    } */
+    input {
+        padding: 0 10px;
+    }
+}
+
+
+
+@media only screen and (max-width: 1024px) {
+    .search__bar {
+        margin: 0 1em;
+    }
+
+    .right__items {
+        /* width: 18em; */
+        width: 17em;
+
+    }
+
+    input {
+        height: 30px;
+        padding: 0 14px;
+    }
+
+    .search__icon_button {
+        height: 30px;
+    }
+
+    .signIn__button__dropbtn {
+        padding: 3px 30px;
+        height: 27px;
+    }
+
+    .dropdown-content {
+        margin-top: 15px;
+
+    }
+
+}
+
+/* @media only screen and (min-width: 480px) {
+
+
+
+} */
+
+/* @media only screen and (min-width: 768px) {
+
+
+
+} */
