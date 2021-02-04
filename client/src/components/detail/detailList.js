@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, {  useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteDetail } from "../../redux/actions/productDetailActions";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
+import * as Api from "../../api/flipkartCloneApi";
+
+
 
 const DetailList = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const details = useSelector((state) => state.productDetails);
   const dispatch = useDispatch();
   const orderedDetails = details
@@ -14,6 +17,13 @@ const DetailList = () => {
     .sort((a, b) => b.date.localeCompare(a.date));
 
   console.log("Detaail with users:", details);
+
+
+  useEffect(()=>{
+    Api.getData().then((res) => console.log("data:>>>", res))
+
+  },[])
+  
 
   const renderedDetails = orderedDetails.map((detail) => {
     return (
@@ -59,7 +69,8 @@ const DetailList = () => {
   return (
     <div>
       <div>
-        {loading ? <div>Data Load...</div> : <div>My name is Sikandar</div>}
+
+        {/* {loading ? <div>Data Load...</div> : <div>My name is Sikandar</div>} */}
         <h2>Details</h2>
         {renderedDetails}
       </div>
