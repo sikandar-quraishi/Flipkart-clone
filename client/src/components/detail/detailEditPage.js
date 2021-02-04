@@ -26,7 +26,7 @@ const DetailEditPage = ({ match }) => {
 
   const onSavePostClicked = () => {
     if (title && content && contentm ) {
-      debugger
+      // debugger
       dispatch(updateDetail({ id: Id, title, content, contentm}))
       history.push(`/detailpage/${Id}`)
     }

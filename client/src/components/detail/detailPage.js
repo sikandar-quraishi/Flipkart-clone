@@ -5,12 +5,7 @@ import { Link } from "react-router-dom";
 const DetailPage = ({ match }) => {
   const { Id } = match.params;
 
-
-  const detail = useSelector((state) =>
-    state.productDetails.find((detail) => detail.id === Id)
-  );
-
-  
+  const detail = useSelector((state) => state.productDetails.find((detail) => detail.id === Id));
 
   console.log("detailPage:", detail);
 

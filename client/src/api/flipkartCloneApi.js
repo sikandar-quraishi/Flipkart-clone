@@ -7,6 +7,21 @@ export const getData = () => {
     return getRequest(url);
 }
 
+// export const getSingleData = (id) => {
+//     let url = `/posts${id}`;
+//     return GetRequest(url);
+//   }
+
+// export const createData = (data) => {
+//     let url = `/posts`;
+//     return PostRequest(url, data);
+//   }
+
+// export const updateUserById = (userId, user) => {
+//     const url = `/users/updateuser/${userId}`;
+//     return PutRequest(url,user);
+//    }
+
 
 
 const getRequest  = (url) => {

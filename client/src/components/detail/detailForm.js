@@ -87,8 +87,6 @@ const DetailList = () => {
         </button>
       </form>
 
-
-
     </div>
   );
 };
