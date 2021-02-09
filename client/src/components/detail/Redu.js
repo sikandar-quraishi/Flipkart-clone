@@ -4,7 +4,6 @@ import {
   DELETE_DETAIL,
   FETCH_DETAILS,
   FETCH_DETAIL,
-
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -13,18 +12,19 @@ const initialState = {
 
 export const productDetailReducer = (state = initialState, action) => {
   switch (action.type) {
+
     case FETCH_DETAILS:
       return {
         ...state,
         details: action.payload,
       };
-
-      case FETCH_DETAIL:
+      
+    case FETCH_DETAIL:
       // debugger
-        return {
-          ...state,
-          details: [action.payload], 
-        };
+      return {
+        ...state,
+        details: action.payload,
+      };
 
     case CREATE_DETAIL:
       return {
@@ -54,6 +54,5 @@ export const productDetailReducer = (state = initialState, action) => {
       return state;
   }
 };
-
 
 export default productDetailReducer;

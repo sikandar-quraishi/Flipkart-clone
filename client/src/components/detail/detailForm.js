@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// import { createDetail } from "../../redux/actions/productDetailActions";
 import { createDetail } from "../../redux/actions/productDetailActions";
-// import { nanoid } from "nanoid";
+
+import { nanoid } from "nanoid";
+// import { CREATE_DETAIL } from "../../redux/actions/actionTypes";
+
 
 const DetailList = () => {
   const [title, setTitle] = useState("");
@@ -20,19 +24,22 @@ const DetailList = () => {
   const onAuthorChanged = (e) => setUserId(e.target.value);
 
   const onSavePostClicked = () => {
-    if (title && content && contentm ) {
-      dispatch(
-        createDetail(
-          title,
-          content,
-          contentm,
-          userId
-          // {
-          //   id: nanoid(),
-          //   title,
-          //   content,
-          //   contentm,
-          // }
+    if (title && content && contentm && userId ) {
+      dispatch(createDetail(
+        
+        // createDetail(
+        //   // title,
+        //   // content,
+        //   // contentm,
+        //   // userId
+          {
+            id: nanoid(),
+            title,
+            content,
+            contentm,
+            userId,
+            date: new Date().toISOString(),
+          }
         )
       );
 
@@ -43,8 +50,7 @@ const DetailList = () => {
     }
   };
 
-  const canSave =
-    Boolean(title) && Boolean(content) && Boolean(contentm) && Boolean(userId);
+  const canSave = Boolean(title) && Boolean(content) && Boolean(contentm) && Boolean(userId);
 
   const usersOptions = users.map((user) => (
     <option key={user.id} value={user.id}>

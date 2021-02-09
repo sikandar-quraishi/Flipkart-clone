@@ -2,15 +2,11 @@ import _axios, { create as Create } from "axios";
 // import axios from "axios";
 
 
-
-const axios = Create({
+export const axios = Create({
   baseURL: "https://jsonplaceholder.typicode.com",
   // timeout: 1000,
 });
 
-// export default axios.create({
-//   baseURL: "https://some-domain.com/api/",
-// });
 
 
 export const get = async (url, success, error) => {
@@ -19,6 +15,8 @@ export const get = async (url, success, error) => {
       mathod: "get",
       url: url,
       responseType: "application/json",
+      // headers: {'X-Requested-With': 'XMLHttpRequest'},
+
       // headers: { authorization: "bearer " + getAuthToken() },
     });
     success(data);

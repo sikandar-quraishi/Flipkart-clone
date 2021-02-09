@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import PostAuthor from './PostAuthor';
 
-import { updateDetail } from "../../redux/actions/productDetailActions";
+import { updateDetail, fetchDetail } from "../../redux/actions/productDetailActions";
 
 
 const DetailEditPage = ({ match }) => {
   const { Id } = match.params
 
-  const detail = useSelector(state => state.productDetails.find(detail => detail.id === Id))
-  console.log("user: Auter >>", detail)
+  const detail = useSelector(state => state.productDetails.details.find(detail => detail.id === Id))
+  // const _detail = useSelector((state) => state.productDetails);
+  // const  detail = _detail.details;
+  
+  // console.log("Edit detail >>", detail)
+
+
+ 
 
   const [title, setTitle] = useState(detail.title)
   const [content, setContent] = useState(detail.content)
@@ -24,9 +30,17 @@ const DetailEditPage = ({ match }) => {
   const onContentmChanged = e => setContentm(e.target.value)
 
 
+
+
+
+
+  useEffect(()=>{
+      dispatch(fetchDetail(Id))
+  },[]) 
+
+
   const onSavePostClicked = () => {
     if (title && content && contentm ) {
-      // debugger
       dispatch(updateDetail({ id: Id, title, content, contentm}))
       history.push(`/detailpage/${Id}`)
     }
