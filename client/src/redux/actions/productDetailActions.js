@@ -19,9 +19,6 @@ export const fetchDetail = (id) => {
     const response = await apiReduxUrl.get(`/flipkart/${id}`);
     dispatch({ type: FETCH_DETAIL, payload: response.data });
 
-    // const stateAfter = getState()
-    // debugger
-    // console.log("Data by Id", stateAfter.productDetails.details)
   };
 };
 
@@ -32,9 +29,11 @@ export const createDetail = (initialState) => {
   };
 };
 
-
+debugger
 export const updateDetail = (id, initialState) => {
-  return async (dispatch) => {
+  debugger
+  return async (dispatch, getState) => {
+    debugger
     const response = await apiReduxUrl.put(`/flipkart/${id}`, initialState);
     dispatch({ type: UPDATE_DETAIL, payload: response.data });
   };
