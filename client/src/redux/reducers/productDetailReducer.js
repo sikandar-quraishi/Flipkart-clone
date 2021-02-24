@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   details: [],
+  item: [],
 };
 
 export const productDetailReducer = (state = initialState, action) => {
@@ -23,7 +24,7 @@ export const productDetailReducer = (state = initialState, action) => {
       // debugger
         return {
           ...state,
-          details: [action.payload], 
+          item: [action.payload], 
         };
 
     case CREATE_DETAIL:
@@ -33,15 +34,17 @@ export const productDetailReducer = (state = initialState, action) => {
       };
 
     case UPDATE_DETAIL:
+      // debugger
       return {
         ...state,
-        details: state.details.map((detail) => {
-          if (detail.id === action.payload.id) {
-            return action.payload;
-          } else {
-            return detail;
-          }
-        }),
+        details: state.details.map((detail) => detail.id === action.payload.id ? action.payload : detail)
+        // details: state.details.map((detail) => {
+        //   if (detail.id === action.payload.id) {
+        //     return action.payload
+        //   } else {
+        //     return detail;
+        //   }
+        // })
       };
 
     case DELETE_DETAIL:

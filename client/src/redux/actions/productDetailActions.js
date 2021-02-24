@@ -10,6 +10,7 @@ import apiReduxUrl from "../../api/apiReduxUrl";
 export const fetchDetails = () => {
   return async (dispatch) => {
     const response = await apiReduxUrl.get("/flipkart");
+    
     dispatch({ type: FETCH_DETAILS, payload: response.data });
   };
 };
@@ -18,29 +19,28 @@ export const fetchDetail = (id) => {
   return async (dispatch) => {
     const response = await apiReduxUrl.get(`/flipkart/${id}`);
     dispatch({ type: FETCH_DETAIL, payload: response.data });
-
   };
 };
 
 export const createDetail = (initialState) => {
   return async (dispatch) => {
     const response = await apiReduxUrl.post("/flipkart", initialState);
+
     dispatch({ type: CREATE_DETAIL, payload: response.data });
   };
 };
 
-debugger
-export const updateDetail = (id, initialState) => {
-  debugger
-  return async (dispatch, getState) => {
-    debugger
-    const response = await apiReduxUrl.put(`/flipkart/${id}`, initialState);
+export const updateDetail = (initialState) => {
+  return async (dispatch) => {
+    const response = await apiReduxUrl.put(`/flipkart/${initialState.id}`, initialState);
+
     dispatch({ type: UPDATE_DETAIL, payload: response.data });
   };
 };
 
 export const deleteDetail = (id) => async (dispatch) => {
   await apiReduxUrl.delete(`/flipkart/${id}`);
+
   dispatch({ type: DELETE_DETAIL, payload: id });
 };
 

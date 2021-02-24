@@ -2,7 +2,7 @@ import React, { useEffect} from "react";
 import { useSelector , useDispatch} from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchDetail } from "../../redux/actions/productDetailActions";
-import { selectDetailById } from '../../redux/reducers/rootReducer'
+// import { selectDetailById } from '../../redux/reducers/rootReducer'
 
 
 const DetailPage = ({ match }) => {
@@ -10,14 +10,14 @@ const DetailPage = ({ match }) => {
 
 // const _detail = useSelector((state)=> selectById(state, Id))
 // debugger
-  const _detail = useSelector((state) => state.productDetails.details.find((detail) => detail.id === Id));
+  const _detail = useSelector((state) => state.productDetails.item.find((detail) => detail.id === Id));
   // const _detail = useSelector(state => selectDetailById(state, Id))
   // const post = useSelector(state => state.posts.find(post => post.id === postId))
   // debugger
   const dispatch = useDispatch();
 
   // const  arrDetails = _detail.details;
-  console.log("SinglePage Data:", _detail );
+  // console.log("SinglePage Data:", _detail );
 
   useEffect(()=>{
     dispatch(fetchDetail(Id))

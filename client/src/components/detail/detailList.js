@@ -49,9 +49,12 @@ const DetailList = () => {
     );
   });
 
+
+
   return (
     <div>
       <div>
+       
         {/* <div><FetchData/></div> */}
         <h2>Details List....</h2>
         {renderedDetails}
