@@ -15,6 +15,8 @@ const DetailList = () => {
     dispatch(fetchDetails());
   }, []);
 
+  console.log("data", data)
+
   const renderedDetails = orderedDetails.map((detail) => {
     return (
       <article className="post-excerpt" key={detail.id}>

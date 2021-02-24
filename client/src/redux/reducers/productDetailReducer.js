@@ -9,7 +9,7 @@ import {
 
 const initialState = {
   details: [],
-  item: [],
+  // item: [],
 };
 
 export const productDetailReducer = (state = initialState, action) => {
