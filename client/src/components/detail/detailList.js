@@ -25,11 +25,12 @@ const DetailList = () => {
     return (
       <article className="post-excerpt" key={detail.id}>
         <h3>{detail.title}</h3>
+        {/* <p>user: {detail.user}</p> */}
         <p className="post-content">{detail.content}</p>
         <p className="post-content">{detail.contentm}</p>
         <br />
         <h3>
-          <PostAuthor userId={detail.user} />
+          <PostAuthor userId={detail.userId} />
           <TimeAgo timestamp={detail.date} />
         </h3>
         <br />

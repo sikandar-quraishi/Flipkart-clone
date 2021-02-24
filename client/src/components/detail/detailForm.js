@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { createDetail } from "../../redux/actions/productDetailActions";
 import { createDetail } from "../../redux/actions/productDetailActions";
-
 import { nanoid } from "nanoid";
-// import { CREATE_DETAIL } from "../../redux/actions/actionTypes";
 
 
 const DetailList = () => {
@@ -14,9 +11,7 @@ const DetailList = () => {
   const [userId, setUserId] = useState("");
 
   const dispatch = useDispatch();
-
   const users = useSelector((state) => state.users);
-  // console.log(users)
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);
@@ -24,29 +19,21 @@ const DetailList = () => {
   const onAuthorChanged = (e) => setUserId(e.target.value);
 
   const onSavePostClicked = () => {
+    let data = {
+      id: nanoid(),
+      title: title,
+      content: content,
+      contentm: contentm,
+      userId: userId,
+      date: new Date().toISOString(),
+    }
     if (title && content && contentm && userId ) {
-      dispatch(createDetail(
-        
-        // createDetail(
-        //   // title,
-        //   // content,
-        //   // contentm,
-        //   // userId
-          {
-            id: nanoid(),
-            title,
-            content,
-            contentm,
-            userId,
-            date: new Date().toISOString(),
-          }
-        )
-      );
+      dispatch(createDetail(data));
 
       setTitle("");
       setContent("");
       setContentm("");
-      setUserId("");   //edtional code
+      setUserId("");  
     }
   };
 
@@ -57,6 +44,7 @@ const DetailList = () => {
       {user.name}
     </option>
   ));
+
   return (
     <div>
       <h2>Add a New Post</h2>
@@ -92,7 +80,6 @@ const DetailList = () => {
           Submit
         </button>
       </form>
-
     </div>
   );
 };

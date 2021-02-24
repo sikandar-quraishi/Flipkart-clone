@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import PostAuthor from './PostAuthor';
 
-
 import { updateDetail, fetchDetail } from "../../redux/actions/productDetailActions";
 
 
@@ -11,7 +10,6 @@ const DetailEditPage = ({ match }) => {
   const { Id } = match.params
 
   const detail = useSelector(state => state.productDetails.details.find(detail => detail.id === Id))
-
   
   const [title, setTitle] = useState(detail.title)
   const [content, setContent] = useState(detail.content)
@@ -19,17 +17,12 @@ const DetailEditPage = ({ match }) => {
   const [date, setDate] = useState(detail.date)
   const [userId, setUserId] = useState(detail.userId);
 
-
-
-
   const dispatch = useDispatch()
   const history = useHistory()
 
   const onTitleChanged = e => setTitle(e.target.value)
   const onContentChanged = e => setContent(e.target.value)
   const onContentmChanged = e => setContentm(e.target.value)
-
-
 
   useEffect(()=>{
     dispatch(fetchDetail(Id))
@@ -39,8 +32,16 @@ const DetailEditPage = ({ match }) => {
 
 
   const onSavePostClicked = () => {
+    let data = { 
+      id: Id,
+      title: title,
+      content: content,
+      contentm: contentm, 
+      date: date,
+      userId: userId, 
+    }
     if (title && content && contentm ) {
-      dispatch(updateDetail({ id: Id, title, content, contentm, date, userId }))
+      dispatch(updateDetail(data))
       history.push(`/detailpage/${Id}`)
     }
   }
@@ -48,7 +49,7 @@ const DetailEditPage = ({ match }) => {
   return (
     <section>
       <h2>Edit Post</h2>
-      <PostAuthor userId={detail.user}/>
+      <PostAuthor userId={detail.userId}/>
 
       <form>
         <label htmlFor="postTitle">Post Title:</label>
