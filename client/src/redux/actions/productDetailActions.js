@@ -5,7 +5,7 @@ import {
   FETCH_DETAIL,
   FETCH_DETAILS,
 } from "./actionTypes";
-import baseURL from "../../api/apiReduxUrl";
+import baseURL from "../../api/apiBaseURL";
 
 export const fetchDetails = () => {
   return async (dispatch) => {
@@ -18,6 +18,7 @@ export const fetchDetails = () => {
 export const fetchDetail = (id) => {
   return async (dispatch) => {
     const response = await baseURL.get(`/flipkart/${id}`);
+    
     dispatch({ type: FETCH_DETAIL, payload: response.data });
   };
 };

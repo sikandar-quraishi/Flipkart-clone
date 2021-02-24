@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  fetchDetails,
-  deleteDetail,
-} from "../../redux/actions/productDetailActions";
+import { fetchDetails, deleteDetail } from "../../redux/actions/productDetailActions";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 
@@ -12,10 +9,7 @@ const DetailList = () => {
   const details = useSelector((state) => state.productDetails.details);
   const dispatch = useDispatch();
 
-  const orderedDetails = details
-    .slice()
-    .sort((a, b) => b.date.localeCompare(a.date));
-  console.log("DetailList Data:", details);
+  const orderedDetails = details.slice().sort((a, b) => b.date.localeCompare(a.date));
 
   useEffect(() => {
     dispatch(fetchDetails());
@@ -25,7 +19,6 @@ const DetailList = () => {
     return (
       <article className="post-excerpt" key={detail.id}>
         <h3>{detail.title}</h3>
-        {/* <p>user: {detail.user}</p> */}
         <p className="post-content">{detail.content}</p>
         <p className="post-content">{detail.contentm}</p>
         <br />

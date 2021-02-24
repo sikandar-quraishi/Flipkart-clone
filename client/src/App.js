@@ -8,7 +8,6 @@ import {
 import HomePage from "./pages/HomePage";
 import DetailPage from "./components/detail/detailPage";
 import DetailEditPage from './components/detail/detailEditPage'
-import FetchData from './components/detail/FetchData'
 
 const App = () => {
   return (
@@ -19,10 +18,7 @@ const App = () => {
             <Route  path="/"  exact component={HomePage} />
             <Route  path="/detailpage/:Id" exact component={DetailPage} />      
             <Route  path="/detaileditpage/:Id" exact component={DetailEditPage} />
-
-            <Route  path="/fetchdata/edit/:id" exact component={FetchData} />
-
-            {/* <Redirect to="/" /> */}
+            <Redirect to="/" />
           </Switch>
         </div>
       </Router>

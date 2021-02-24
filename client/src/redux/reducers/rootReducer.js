@@ -8,9 +8,4 @@ const rootReducer = combineReducers({
   users: userReducer,
 });
 
-
-// export const selectAllDetails = state => state.productDetails
-// export const selectDetailById = (state, Id) => state.productDetails.details.find((detail) => detail.id === Id);
-
-
 export default rootReducer;
