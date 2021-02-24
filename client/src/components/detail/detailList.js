@@ -1,31 +1,25 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchDetails, deleteDetail } from "../../redux/actions/productDetailActions";
+import {
+  fetchDetails,
+  deleteDetail,
+} from "../../redux/actions/productDetailActions";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
-// import FetchData from './FetchData'
-
-
 
 const DetailList = () => {
-
   const details = useSelector((state) => state.productDetails.details);
   const dispatch = useDispatch();
 
-  const orderedDetails = details.slice().sort((a, b) => b.date.localeCompare(a.date));
+  const orderedDetails = details
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date));
   console.log("DetailList Data:", details);
 
-
-  useEffect(()=>{
-
-      
-    dispatch(fetchDetails())
-
-
-  }, [])
-
-  
+  useEffect(() => {
+    dispatch(fetchDetails());
+  }, []);
 
   const renderedDetails = orderedDetails.map((detail) => {
     return (
@@ -49,14 +43,10 @@ const DetailList = () => {
     );
   });
 
-
-
   return (
     <div>
       <div>
-       
-        {/* <div><FetchData/></div> */}
-        <h2>Details List....</h2>
+        <h2>Details List</h2>
         {renderedDetails}
       </div>
     </div>

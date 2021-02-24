@@ -10,7 +10,7 @@ const DetailPage = ({ match }) => {
 
 // const _detail = useSelector((state)=> selectById(state, Id))
 // debugger
-  const _detail = useSelector((state) => state.productDetails.item.find((detail) => detail.id === Id));
+  const _detail = useSelector((state) => state.productDetails.details.find((detail) => detail.id === Id));
   // const _detail = useSelector(state => selectDetailById(state, Id))
   // const post = useSelector(state => state.posts.find(post => post.id === postId))
   // debugger

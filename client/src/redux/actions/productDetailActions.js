@@ -5,26 +5,26 @@ import {
   FETCH_DETAIL,
   FETCH_DETAILS,
 } from "./actionTypes";
-import apiReduxUrl from "../../api/apiReduxUrl";
+import baseURL from "../../api/apiReduxUrl";
 
 export const fetchDetails = () => {
   return async (dispatch) => {
-    const response = await apiReduxUrl.get("/flipkart");
-    
+    const response = await baseURL.get("/flipkart");
+
     dispatch({ type: FETCH_DETAILS, payload: response.data });
   };
 };
 
 export const fetchDetail = (id) => {
   return async (dispatch) => {
-    const response = await apiReduxUrl.get(`/flipkart/${id}`);
+    const response = await baseURL.get(`/flipkart/${id}`);
     dispatch({ type: FETCH_DETAIL, payload: response.data });
   };
 };
 
 export const createDetail = (initialState) => {
   return async (dispatch) => {
-    const response = await apiReduxUrl.post("/flipkart", initialState);
+    const response = await baseURL.post("/flipkart", initialState);
 
     dispatch({ type: CREATE_DETAIL, payload: response.data });
   };
@@ -32,14 +32,14 @@ export const createDetail = (initialState) => {
 
 export const updateDetail = (initialState) => {
   return async (dispatch) => {
-    const response = await apiReduxUrl.put(`/flipkart/${initialState.id}`, initialState);
+    const response = await baseURL.put(`/flipkart/${initialState.id}`, initialState);
 
     dispatch({ type: UPDATE_DETAIL, payload: response.data });
   };
 };
 
 export const deleteDetail = (id) => async (dispatch) => {
-  await apiReduxUrl.delete(`/flipkart/${id}`);
+  await baseURL.delete(`/flipkart/${id}`);
 
   dispatch({ type: DELETE_DETAIL, payload: id });
 };

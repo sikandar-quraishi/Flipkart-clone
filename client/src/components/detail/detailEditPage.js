@@ -10,7 +10,7 @@ import { updateDetail, fetchDetail } from "../../redux/actions/productDetailActi
 const DetailEditPage = ({ match }) => {
   const { Id } = match.params
 
-  const detail = useSelector(state => state.productDetails.item.find(detail => detail.id === Id))
+  const detail = useSelector(state => state.productDetails.details.find(detail => detail.id === Id))
 
   
   const [title, setTitle] = useState(detail.title)
@@ -30,24 +30,12 @@ const DetailEditPage = ({ match }) => {
   const onContentmChanged = e => setContentm(e.target.value)
 
 
+
   useEffect(()=>{
     dispatch(fetchDetail(Id))
 },[]) 
 
-  console.log("Detail control:",  detail.title, detail.content, detail.contentm)
-
-  // console.log("Edit detail >>", Id, detail.title)
-
-
- 
-
-
-
-
-// console.log("Target Value:", e.target.value)
-
-
-
+  console.log("Taget Value:",  title, content, contentm)
 
 
   const onSavePostClicked = () => {
@@ -55,8 +43,6 @@ const DetailEditPage = ({ match }) => {
       dispatch(updateDetail({ id: Id, title, content, contentm, date, userId }))
       history.push(`/detailpage/${Id}`)
     }
-    // console.log("cosole:",  title, content, contentm)
-
   }
 
   return (
@@ -91,9 +77,6 @@ const DetailEditPage = ({ match }) => {
       <button type="button" onClick={onSavePostClicked}>
         Save Post
       </button>
-
-
-
     </section>
   )
 }

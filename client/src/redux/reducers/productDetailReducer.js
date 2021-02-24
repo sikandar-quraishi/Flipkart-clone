@@ -21,10 +21,9 @@ export const productDetailReducer = (state = initialState, action) => {
       };
 
       case FETCH_DETAIL:
-      // debugger
         return {
           ...state,
-          item: [action.payload], 
+          details: [action.payload], 
         };
 
     case CREATE_DETAIL:
@@ -34,7 +33,6 @@ export const productDetailReducer = (state = initialState, action) => {
       };
 
     case UPDATE_DETAIL:
-      // debugger
       return {
         ...state,
         details: state.details.map((detail) => detail.id === action.payload.id ? action.payload : detail)
