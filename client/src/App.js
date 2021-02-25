@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DetailPage from "./components/detail/detailPage";
-import DetailEditPage from './components/detail/detailEditPage'
+import DetailEditPage from './components/detail/detailEditPage';
 
 const App = () => {
   return (

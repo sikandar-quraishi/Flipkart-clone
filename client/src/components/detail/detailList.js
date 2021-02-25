@@ -15,7 +15,6 @@ const DetailList = () => {
     dispatch(fetchDetails());
   }, []);
 
-  console.log("data", data)
 
   const renderedDetails = orderedDetails.map((detail) => {
     return (
