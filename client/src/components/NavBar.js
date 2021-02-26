@@ -16,6 +16,7 @@ import {
   faChartLine,
   faDownload
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -164,9 +165,9 @@ const App = () => {
 
           {/* ------------------------------------------------------------ */}
 
-          <a className="dropdown__cart" href="#aaa">
+          <Link className="dropdown__cart" to="/listpage">
             <FontAwesomeIcon icon={faShoppingCart} /> Cart
-          </a>
+          </Link>
         </div>
       </nav>
     </div>

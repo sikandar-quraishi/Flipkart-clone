@@ -1,51 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  fetchDetails,
-  deleteDetail,
-} from "../../redux/actions/productDetailActions";
+import { fetchDetails, deleteDetail } from "../../redux/actions/productDetailActions";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
+import './ListPage.css'
 
-const DetailList = () => {
-  const [ data, setData] = useState(false)
+const ListPage = () => {
   const details = useSelector((state) => state.productDetails.details);
   const dispatch = useDispatch();
 
-  const orderedDetails = details
-    .slice()
-    .sort((a, b) => b.date.localeCompare(a.date));
+  const orderedDetails = details.slice().sort((a, b) => b.date.localeCompare(a.date));
 
 
 
 
   useEffect(() => {
-    // dispatch(fetchDetails());
+    dispatch(fetchDetails());
 
-    getData()
   }, []);
 
- const getData = () => {
-
-  setTimeout(()=> { 
-    setData(true)
-    dispatch(fetchDetails());
-  },500)
-  
-  setData(false)
- }
 
 
-  if(!data){
-    return(
-      <div>Loading...</div>
-    )
-  }
 
+ 
   const renderedDetails = orderedDetails.map((detail) => {
     return (
-      <article className="post-excerpt" key={detail.id}>
+      <article className="cart__box" key={detail.id}>
         <h3>{detail.title}</h3>
         <p className="post-content">{detail.content}</p>
         <p className="post-content">{detail.contentm}</p>
@@ -67,13 +48,12 @@ const DetailList = () => {
 
   return (
     <div>
-      <div>
+      <div className="listpage_container">
       
         {renderedDetails}
-        <h2>Details List</h2>
       </div>
     </div>
   );
 };
 
-export default DetailList;
+export default ListPage;
