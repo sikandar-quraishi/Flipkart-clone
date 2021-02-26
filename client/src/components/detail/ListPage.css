@@ -3,5 +3,9 @@
 }
 
 .listpage_container{
-    
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    grid-gap: 1rem;
+    padding: 40px;
 }
