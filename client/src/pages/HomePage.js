@@ -7,8 +7,8 @@ const HomePage = () => {
     return (
         <div>
             <NavBar/>
-            <DetailList/>
             <DetailForm/>
+            <DetailList/>
         </div>
     )
 }

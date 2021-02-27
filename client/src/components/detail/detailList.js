@@ -7,6 +7,8 @@ import {
 } from "../../redux/actions/productDetailActions";
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
+import "./ListPage.css";
+
 
 const DetailList = () => {
   const [ data, setData] = useState(false)
@@ -45,18 +47,20 @@ const DetailList = () => {
 
   const renderedDetails = orderedDetails.map((detail) => {
     return (
-      <article className="post-excerpt" key={detail.id}>
+      <article className="cart__box" key={detail.id}>
+        <p>
+          <TimeAgo timestamp={detail.date} />
+        </p>
+        <p>
+          <PostAuthor userId={detail.userId} />
+        </p>
+
         <h3>{detail.title}</h3>
         <p className="post-content">{detail.content}</p>
         <p className="post-content">{detail.contentm}</p>
-        <br />
-        <h3>
-          <PostAuthor userId={detail.userId} />
-          <TimeAgo timestamp={detail.date} />
-        </h3>
-        <br />
+      
         <Link to={`/detailpage/${detail.id}`} className="button muted-button">
-          View details
+            <button> View details</button>
         </Link>
         <button onClick={() => dispatch(deleteDetail(detail.id))}>
           Delete
@@ -67,10 +71,8 @@ const DetailList = () => {
 
   return (
     <div>
-      <div>
-      
+      <div className="listpage_container">
         {renderedDetails}
-        <h2>Details List</h2>
       </div>
     </div>
   );

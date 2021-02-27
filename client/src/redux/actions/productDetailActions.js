@@ -23,17 +23,17 @@ export const fetchDetail = (id) => {
   };
 };
 
-export const createDetail = (initialState) => {
+export const createDetail = (singleData) => {
   return async (dispatch) => {
-    const response = await baseURL.post("/flipkart", initialState);
+    const response = await baseURL.post("/flipkart", singleData);
 
     dispatch({ type: CREATE_DETAIL, payload: response.data });
   };
 };
 
-export const updateDetail = (initialState) => {
+export const updateDetail = (singleData) => {
   return async (dispatch) => {
-    const response = await baseURL.put(`/flipkart/${initialState.id}`, initialState);
+    const response = await baseURL.put(`/flipkart/${singleData.id}`, singleData);
 
     dispatch({ type: UPDATE_DETAIL, payload: response.data });
   };
