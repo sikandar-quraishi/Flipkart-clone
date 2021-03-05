@@ -14,6 +14,9 @@ const DetailList = () => {
   const [numberInput, setNumberInput] = useState(1)
   const [checkBoxInput, setCheckBoxInput] = useState(null)
 
+  const [multipleCheckBoxInput, setMultipleCheckBoxInput] = useState([])
+
+
 
 
   const dispatch = useDispatch();
@@ -34,7 +37,13 @@ const DetailList = () => {
   const handleCheckBoxInput = (e) => {
     setCheckBoxInput(!checkBoxInput)
     console.log("Single Checkbox:", !checkBoxInput);
+  }
 
+  const handleMultipleCheckBox = (e) => {
+    let multipleValue = multipleCheckBoxInput;
+    multipleValue.push(e.target.value)
+    setMultipleCheckBoxInput(multipleValue)
+    console.log("Multiple Checkbox:", multipleValue);
 
   }
     
@@ -60,6 +69,7 @@ const DetailList = () => {
       genderInputRadio: parseInt(genderInputRadio),
       numberInput: numberInput,
       checkBoxInput:checkBoxInput,
+      multipleCheckBoxInput:multipleCheckBoxInput,
       date: new Date().toISOString(),
     }
     if (title && content && contentm && userId && fileInput ) {
@@ -93,7 +103,7 @@ const DetailList = () => {
       <form>
       <label htmlFor="postAuthor">Author:</label>
         <select id="author" name="author" value={userId} onChange={onAuthorChanged}>
-          <option value=""></option>
+          <option value="">Author</option>
           {users.map((user) => (
               <option key={user.id} value={user.id}>
                 {user.name}
@@ -125,6 +135,7 @@ const DetailList = () => {
           value={contentm}
           onChange={onContentmChanged}
         />
+        <br/>
         <label htmlFor="postContent">File Upload:</label>
         <input onChange={handleFile} type="file" name="file" id="file"/>
 
@@ -134,16 +145,16 @@ const DetailList = () => {
         <input type="radio" checked={genderInputRadio === "2"} onChange={handleGender} value="2" name="gender" /> Other
         {/* </div> */}
 
-        <input type="number" id="number" name="number"  value={numberInput}  onChange={handleNumberInput} pattern="[0-9]*"  />
-        <input type="checkbox" checked={checkBoxInput}  onChange={handleCheckBoxInput} />
+        <input type="number" id="number" name="number"  value={numberInput}  onChange={handleNumberInput} pattern="[0-9]*" style={{border: "2px solid"}} />
+        <input type="checkbox" defaultChecked={checkBoxInput}  onChange={handleCheckBoxInput} />
 
-        
+
         <div>Multiple CheckBox</div>
-        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike "/>
-        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
-        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
-        <input type="checkbox" id="vehicle4" name="vehicle4" value="Bmw" />
-        <input type="checkbox" id="vehicle5" name="vehicle5" value="Honda" />
+        <input type="checkbox" onChange={handleMultipleCheckBox} id="vehicle1" name="vehicle1" value="Bike "/>
+        <input type="checkbox" onChange={handleMultipleCheckBox} id="vehicle2" name="vehicle2" value="Car" />
+        <input type="checkbox" onChange={handleMultipleCheckBox} id="vehicle3" name="vehicle3" value="Boat" />
+        <input type="checkbox" onChange={handleMultipleCheckBox} id="vehicle4" name="vehicle4" value="Bmw" />
+        <input type="checkbox" onChange={handleMultipleCheckBox} id="vehicle5" name="vehicle5" value="Honda" />
 
 
 
